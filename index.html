@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FarmaAi-Solutions — Building AI for Smarter Farming</title>
+  <meta name="description" content="FarmaAi-Solutions — AI solutions to help farmers increase yield, reduce costs, and save resources. Founded by Terna College students." />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+    :root {
+      --accent: #2b9348;
+      --accent-light: #56b46e;
+      --dark: #0b1220;
+      --muted: #64748b;
+      --bg: #f9fafb;
+      --card-bg: #ffffff;
+      --shadow: rgba(12, 24, 40, 0.1);
+      --border-radius: 14px;
+      --transition: 0.3s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      color: var(--dark);
+      background-color: var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+    a:hover,
+    a:focus {
+      color: var(--accent-light);
+      outline: none;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 32px 24px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 24px;
+      border-bottom: 1px solid #e2e8f0;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .logo {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--accent), #184e2b);
+      border-radius: var(--border-radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 24px;
+      color: #fff;
+      user-select: none;
+      box-shadow: 0 4px 12px var(--shadow);
+    }
+
+    .brand h1 {
+      font-weight: 700;
+      font-size: 22px;
+      margin: 0;
+      color: var(--dark);
+      letter-spacing: 0.05em;
+    }
+
+    nav {
+      display: flex;
+      gap: 28px;
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    nav a {
+      position: relative;
+      padding-bottom: 4px;
+      color: var(--muted);
+      transition: color var(--transition);
+    }
+    nav a:hover,
+    nav a:focus {
+      color: var(--accent);
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 2px;
+      width: 0%;
+      background: var(--accent);
+      transition: width var(--transition);
+      border-radius: 2px;
+    }
+    nav a:hover::after,
+    nav a:focus::after {
+      width: 100%;
+    }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 56px;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .hero-text {
+      max-width: 540px;
+    }
+
+    .pill {
+      display: inline-block;
+      background: #daf3d9;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 14px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      margin-bottom: 16px;
+      user-select: none;
+      box-shadow: 0 2px 8px rgba(43, 147, 72, 0.3);
+    }
+
+    .hero-text h2 {
+      font-size: 36px;
+      line-height: 1.1;
+      margin: 0 0 18px 0;
+      color: var(--dark);
+    }
+
+    .hero-text p {
+      color: var(--muted);
+      font-size: 17px;
+      margin-bottom: 28px;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      transition: background-color var(--transition), color var(--transition), box-shadow var(--transition);
+      user-select: none;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+      font-size: 16px;
+    }
+
+    .btn-primary {
+      background-color: var(--accent);
+      color: white;
+      box-shadow: 0 6px 18px rgba(43, 147, 72, 0.6);
+    }
+    .btn-primary:hover,
+    .btn-primary:focus {
+      background-color: var(--accent-light);
+      box-shadow: 0 8px 24px rgba(86, 180, 110, 0.8);
+      outline: none;
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--accent);
+      border: 2px solid var(--accent);
+    }
+    .btn-secondary:hover,
+    .btn-secondary:focus {
+      background-color: var(--accent);
+      color: white;
+      outline: none;
+    }
+
+    .features {
+      margin-top: 56px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+    }
+
+    .feature-card {
+      background-color: var(--card-bg);
+      padding: 28px 24px;
+      border-radius: var(--border-radius);
+      box-shadow: 0 8px 24px var(--shadow);
+      text-align: center;
+      transition: transform var(--transition), box-shadow var(--transition);
+      cursor: default;
+      user-select: none;
+    }
+    .feature-card:hover,
+    .feature-card:focus-within {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px rgba(43, 147, 72, 0.3);
+      outline: none;
+    }
+
+    .feature-icon {
+      font-size: 42px;
+      margin-bottom: 14px;
+      color: var(--accent);
+    }
+    .feature-card h3 {
+      margin-bottom: 10px;
+      font-size: 20px;
+      color: var(--dark);
+    }
+    .feature-card p {
+      font-size: 15px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    #founders {
+      margin-top: 80px;
+      padding-top: 12px;
+      border-top: 2px solid var(--accent-light);
+    }
+
+    #founders h2 {
+      font-size: 28px;
+      margin-bottom: 24px;
+      font-weight: 700;
+      color: var(--dark);
+      text-align: center;
+    }
+
+    .founders {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .founder {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      padding: 24px;
+      width: 280px;
+      box-shadow: 0 10px 30px var(--shadow);
+      text-align: center;
+      transition: box-shadow var(--transition);
+    }
+    .founder:hover,
+    .founder:focus-within {
+      box-shadow: 0 14px 36px rgba(43, 147, 72, 0.3);
+      outline: none;
+    }
+
+    .avatar {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 16px auto;
+      border-radius: var(--border-radius);
+      background: linear-gradient(135deg, #e6f3ea, #c7f0d0);
+      color: #064b2d;
+      font-weight: 700;
+      font-size: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      user-select: none;
+      box-shadow: 0 4px 12px var(--shadow);
+    }
+
+    .founder h4 {
+      margin: 0 0 6px 0;
+      font-size: 20px;
+      color: var(--dark);
+    }
+
+    .founder .role {
+      font-size: 14px;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .founder a {
+      font-size: 14px;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 6px;
+      transition: color var(--transition);
+    }
+    .founder a:hover,
+    .founder a:focus {
+      color: var(--accent);
+      outline: none;
+    }
+
+    footer {
+      margin-top: 80px;
+      text-align: center;
+      padding: 28px 12px;
+      font-size: 14px;
+      color: var(--muted);
+      border-top: 1px solid #e2e8f0;
+      user-select: none;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 900px) {
+      .hero {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-text {
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 520px) {
+      nav {
+        gap: 16px;
+        font-size: 14px;
+      }
+      .feature-card {
+        padding: 20px 16px;
+      }
+      .founder {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container" role="main">
+ <header>
+  <div class="brand">
+    <img src="FAi.png" alt="FarmaAi Logo" class="logo">
+<h1 style="margin: 0;">FarmaAi-Solutions</h1>
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html">Contact</a>
+    <a href="about.html">About</a>
+  </nav>
+</header>
+    
+
+
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-text">
+        <span class="pill" aria-hidden="true">AI for Smarter Farms</span>
+        <h2 id="hero-title">FarmaAi-Solutions — AI that helps farmers increase yield, reduce cost & waste.</h2>
+        <p>We build simple, practical AI tools and advisory for crop selection, fertilizer suggestions, pest alerts, and irrigation planning. Created by Terna College students.</p>
+        <div class="cta-row">
+          <button class="btn btn-primary" onclick="contactMail()" aria-label="Contact Prathmesh Mane Deshmukh">Contact Founder</button>
+          <a href="#founders" class="btn btn-secondary">Meet Founders</a>
+        </div>
+      </div>
+
+      <img src="bg.jpg" alt="Farm and AI Illustration" style="max-width: 420px; border-radius: var(--border-radius); box-shadow: 0 12px 24px var(--shadow);" loading="lazy" />
+    </section>
+
+    <section class="features" aria-label="Key features of FarmaAi-Solutions">
+      <article class="feature-card" tabindex="0">
+        <div class="feature-icon" aria-hidden="true">🌾</div>
+        <h3>Crop Guidance</h3>
+        <p>Recommend best crops based on soil and weather patterns.</p>
+      </article>
+      <article class="feature-card" tabindex="0">
+        <div class="feature-icon" aria-hidden="true">🐞</div>
+        <h3>Pest Alerts</h3>
+        <p>Early warnings for common pests using simple image checks & heuristics.</p>
+      </article>
+      <article class="feature-card" tabindex="0">
+        <div class="feature-icon" aria-hidden="true">💧</div>
+        <h3>Irrigation Planner</h3>
+        <p>Schedule irrigation to save water and improve plant health.</p>
+      </article>
+    </section>
+
+    <section id="founders" aria-labelledby="founders-title">
+      <h2 id="founders-title">Founders</h2>
+      <div class="founders">
+
+        <div class="founder" tabindex="0">
+          <div class="avatar" aria-hidden="true">
+  		<img src="pmd.jpg" alt="Founder Logo" class="logo">
+</div>
+
+          <h4>Prathmesh Mane Deshmukh</h4>
+          <div class="role">Founder & CEO — Product & AI Lead</div>
+          <a href="mailto:pmaned05@gmail.com" target="_blank" rel="noopener noreferrer">pmaned05@gmail.com</a>
+          <a href="https://www.linkedin.com/in/pmd005" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
+        </div>
+ <div class="founder" tabindex="0">
+          <div class="avatar" aria-hidden="true">
+  		<img src="ad.jpg" alt="Founder Logo" class="logo">
+  </div>
+          <h4>Atharv Deshmane</h4>
+          <div class="role">Co-founder — Engineering & Dev</div>
+          <a href="mailto:atharvdeshmane101@gmail.com" target="_blank" rel="noopener noreferrer">atharvdeshmane101@gmail.com</a>
+          <a href="https://linkedin.com/in/atharv-deshmane-926872371" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      FarmaAi-Solutions — Building AI for Farm • Founded by Prathmesh Mane Deshmukh & Atharv Deshmane<br />
+          </footer>
+  </div>
+
+  <script>
+    function contactMail() {
+      const subject = encodeURIComponent('Inquiry — FarmaAi-Solutions');
+      const body = encodeURIComponent('Hi Prathmesh,%0A%0AI am interested in FarmaAi-Solutions. Please tell me more about your solutions and collaborations.%0A%0AThanks,%0A');
+      window.location.href = `mailto:pmaned05@gmail.com?subject=${subject}&body=${body}`;
+    }
+  </script>
+</body>
+</html>
+
+
+
+
