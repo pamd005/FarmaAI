@@ -10,7 +10,7 @@ Our mission is to empower farmers with technology that improves productivity, su
 - User-friendly design with mobile responsiveness
 
 ## 🛠️ Built With
-- HTML5, CSS3, JavaScript
+- HTML5
 - Modern UI layout
 - Optimized for GitHub Pages hosting
 
