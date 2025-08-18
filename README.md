@@ -15,6 +15,6 @@ Our mission is to empower farmers with technology that improves productivity, su
 - Optimized for GitHub Pages hosting
 
 ## 🌍 Live Website
-[Visit FarmaAi-Solutions](https://pamd005.github.io/FarmaAi-Solutions/)
+[Visit FarmaAi-Solutions](https://pamd005.github.io/FarmaAI/)
 
 ---
